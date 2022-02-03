@@ -78,6 +78,9 @@ def after10result(request):
         count_arts=0
         count_science=0
         count_comm=0
+        science_subcount = 0
+        art_subcount = 0
+        comm_subcount = 0
         for question in questions:
             #print(question.id)
             # user_id = result.objects.get(user_id = user_id)
@@ -97,7 +100,10 @@ def after10result(request):
                     count_arts=count_arts+option_selected
                 if(type=='S'):
                     count_science=count_science+option_selected
+                # if(type == 'S' and option_selected == '2'):
+                #     science_subcount = science_subcount + 1
                 
+                    
                 ans.save()
                 flag=True
         # email= form.cleaned_data.get("email")
@@ -109,10 +115,11 @@ def after10result(request):
         countResult=Result10Count(username=username,count_science=count_science,count_arts=count_arts,count_commerce=count_comm)   
         countResult.save()
         print(count_arts,count_comm,count_science)
+        res = max(count_arts,count_comm,count_science)
         print(username)
         print(User.email) 
            
-    return render(request, "after10result.html", {'flag': flag,'science':count_science,'comm':count_comm,'arts':count_arts,})
+    return render(request, "after10result.html", {'flag': flag,'science':count_science,'comm':count_comm,'arts':count_arts, 'res' : res, 'science_subcount': science_subcount})
     
     
 

@@ -4,10 +4,25 @@
 <br>
 <p> "Congratulations! You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path."</p>
 <p> Your Result Is: </p>
-Science:{{science}}
-Commerce:{{comm}}
-Arts:{{arts}}
-
+Result Score: {{res}}
+science_subcount:{{science_subcount}}
+{% if res == science %}
+<p>You preferred 'Science'the most, as compared to 'Commerce' and 'Arts'<br>
+    Interpretation:-
+    Your score on Science quentionary was at a high level. You show formidable skills in computers and medical related fields.
+    Overall your ability scores indicate that you have great skills in perceiving Science stream after 10th </p>
+{% elif res == comm %}
+<p>You preferred 'Commerce' the most, as compared to 'Science' and 'Arts'<br>
+    Interpretation:-
+    Your score on Commerce quentionary was at a high level. You show formidable skills in finance,banking and mannaging accounts related fields.
+    Overall your ability scores indicate that you have great skills in perceiving Commerce stream after 10th </p>
+{% elif res == arts %}
+    <p> You preferred 'Arts' the most, as compared to 'Science' and 'Commerce'<br>
+        Interpretation:-
+        Your score on Arts quentionary was at a high level. You show formidable skills in designing and art work related fields.
+        Overall your ability scores indicate that you have great skills in perceiving Arts stream after 10th
+        </p>
+{% endif %}
 <br>
 <br>
 <br>
