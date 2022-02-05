@@ -100,15 +100,18 @@ def after10result(request):
                     count_arts=count_arts+option_selected
                 if(type=='S'):
                     count_science=count_science+option_selected
-                # if(type == 'S' and option_selected == '2'):
-                #     science_subcount = science_subcount + 1
+                if(type == 'S' and option_selected == 2):
+                    science_subcount = science_subcount + 1
+                if(type == 'C' and option_selected == 2):
+                    comm_subcount = comm_subcount + 1
+                if(type == 'A' and option_selected == 2):
+                    art_subcount = art_subcount + 1
                 
                     
                 ans.save()
                 flag=True
         # email= form.cleaned_data.get("email")
         # password= form.cleaned_data.get("password")
-    
         # user= User.objects.get(email=email, password=password)
         # print(user.email)
         # print(user.password)
@@ -119,7 +122,7 @@ def after10result(request):
         print(username)
         print(User.email) 
            
-    return render(request, "after10result.html", {'flag': flag,'science':count_science,'comm':count_comm,'arts':count_arts, 'res' : res, 'science_subcount': science_subcount})
+    return render(request, "after10result.html", {'flag': flag,'science':count_science,'comm':count_comm,'arts':count_arts, 'res' : res, 'science_subcount': science_subcount,'art_subcount': art_subcount, 'comm_subcount': comm_subcount,})
     
     
 

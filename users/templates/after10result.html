@@ -4,9 +4,11 @@
 <br>
 <p> "Congratulations! You have finished the evaluation of your career interests and you're well on your way to discovering your ideal career path."</p>
 <p> Your Result Is: </p>
-Result Score: {{res}}
-science_subcount:{{science_subcount}}
-{% if res == science %}
+Result Score: {{res}}<br>
+{% comment %} science_subcount:{{science_subcount}}
+art_subcount : {{art_subcount}}
+comm_subcount:{{comm_subcount}} {% endcomment %}
+{% comment %} {% if res == science %}
 <p>You preferred 'Science'the most, as compared to 'Commerce' and 'Arts'<br>
     Interpretation:-
     Your score on Science quentionary was at a high level. You show formidable skills in computers and medical related fields.
@@ -22,7 +24,99 @@ science_subcount:{{science_subcount}}
         Your score on Arts quentionary was at a high level. You show formidable skills in designing and art work related fields.
         Overall your ability scores indicate that you have great skills in perceiving Arts stream after 10th
         </p>
-{% endif %}
+{% endif %} {% endcomment %}
+{% if count_arts == count_comm and count_arts == count_science %}
+    {% if science_subcount == comm_subcount and science_subcount == art_subcount %}
+    <p>You are equally interested in 'Science','Commerce' and 'Arts'<br>
+        Interpretation :-
+        Your score shows you have equal preferences in 'Science','Commerce' and 'Arts' related fields.
+        Overall we will prefer you to go towards Science field as it has scalability in future and is easy to change the field from Science to Commerce and Arts </p>
+    {% else  %}
+        {% if art_subcount > comm_subcount and art_subcount > science_subcount %}
+        <p>You preferred 'Arts' the most, as compared to 'Science' and 'Commerce'<br>
+            Interpretation:-
+            Your score on Arts quentionary was at a high level. You show formidable skills in designing and art work related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Arts stream after 10th
+		</p>
+        {% elif comm_subcount >= art_subcount and comm_subcount > science_subcount %}
+        <p>You preferred 'Commerce' the most, as compared to 'Science' and 'Arts'<br>
+            Interpretation:-
+            Your score on Commerce quentionary was at a high level. You show formidable skills in finance,banking and mannaging accounts related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Commerce stream after 10th
+        </p>  
+        {% else %}
+        <p>You preferred 'Science'the most, as compared to 'Commerce' and 'Arts'<br>
+            Interpretation:-
+            Your score on Science quentionary was at a high level. You show formidable skills in computers and medical related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Science stream after 10th
+        </p>
+        {% endif %}
+    {% endif %}
+{% else %}
+	{% if count_science == count_comm and count_science > count_arts %}
+		{% if comm_subcount > science_subcount %}
+		<p>You preferred 'Commerce' the most, as compared to 'Science' and 'Arts'<br>
+            Interpretation:-
+            Your score on Commerce quentionary was at a high level. You show formidable skills in finance,banking and mannaging accounts related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Commerce stream after 10th
+        </p>
+		{% else %}
+		<p>You preferred 'Science'the most, as compared to 'Commerce' and 'Arts'<br>
+            Interpretation:-
+            Your score on Science quentionary was at a high level. You show formidable skills in computers and medical related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Science stream after 10th
+        </p>
+		{% endif %}
+	{% elif count_science == count_arts and count_science > count_comm %}
+		{% if art_subcount > science_subcount %}
+		<p>You preferred 'Arts' the most, as compared to 'Science' and 'Commerce'<br>
+            Interpretation:-
+            Your score on Arts quentionary was at a high level. You show formidable skills in designing and art work related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Arts stream after 10th
+		</p>
+		{% else %}
+		<p>You preferred 'Science'the most, as compared to 'Commerce' and 'Arts'<br>
+            Interpretation:-
+            Your score on Science quentionary was at a high level. You show formidable skills in computers and medical related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Science stream after 10th
+        </p>
+		{% endif %}
+	{% elif count_arts == count_comm and count_arts > count_science %}
+		{% if art_subcount > comm_subcount %}
+		<p>You preferred 'Arts' the most, as compared to 'Science' and 'Commerce'<br>
+            Interpretation:-
+            Your score on Arts quentionary was at a high level. You show formidable skills in designing and art work related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Arts stream after 10th
+		</p>
+		{% else %}
+		<p>You preferred 'Commerce' the most, as compared to 'Science' and 'Arts'<br>
+            Interpretation:-
+            Your score on Commerce quentionary was at a high level. You show formidable skills in finance,banking and mannaging accounts related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Commerce stream after 10th
+        </p>
+		{% endif %}
+	{% elif count_arts > count_comm and count_arts > count_science %}
+		<p>You preferred 'Arts' the most, as compared to 'Science' and 'Commerce'<br>
+            Interpretation:-
+            Your score on Arts quentionary was at a high level. You show formidable skills in designing and art work related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Arts stream after 10th
+		</p>
+	{% elif count_comm > count_arts and count_comm > count_science %}
+		<p>You preferred 'Commerce' the most, as compared to 'Science' and 'Arts'<br>
+            Interpretation:-
+            Your score on Commerce quentionary was at a high level. You show formidable skills in finance,banking and mannaging accounts related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Commerce stream after 10th
+        </p>
+	{% else %}
+		<p>You preferred 'Science'the most, as compared to 'Commerce' and 'Arts'<br>
+            Interpretation:-
+            Your score on Science quentionary was at a high level. You show formidable skills in computers and medical related fields.
+            Overall your ability scores indicate that you have great skills in perceiving Science stream after 10th
+        </p>
+	{% endif %}
+{% endif%}
+
+
 <br>
 <br>
 <br>
