@@ -1,13 +1,21 @@
-from contextlib import redirect_stderr
-from itertools import count
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from .models import Result10Count, User
+from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from users.models import After10, After12Arts, After12Commerce, After12Science ,After10colleges, After12engcolleges, After12medicolleges,After12commcolleges,After12artscolleges,result,result12arts,result12comm,result12sci
 from .forms import SignUpForm, LoginForm
 from django.db.models.query_utils import DeferredAttribute
+from contextlib import redirect_stderr
+import csv
+from itertools import count
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.linear_model import LinearRegression
+
 # Create your views here.
 
 def home(request):
@@ -81,6 +89,13 @@ def after10result(request):
         science_subcount = 0
         art_subcount = 0
         comm_subcount = 0
+        results = pd.DataFrame()
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename=file.csv'
+        results.to_csv(path_or_buf=response,sep=';',float_format='%.2f',index=False,decimal=",")
+        writer = csv.writer(response)  
+        writer.writerow(['question', 'answer', 'username', 'question_type'])
+
         for question in questions:
             #print(question.id)
             # user_id = result.objects.get(user_id = user_id)
@@ -90,9 +105,10 @@ def after10result(request):
             option_selected=request.POST.get(str(q_id))
             type=question.question_type
             print(q_id, option_selected,type)
-            
+            correct_ans=question.correct_answer
+            print(correct_ans)
             if(q_id != None and option_selected!= None):
-                ans = result(question = q_id,answer = option_selected,username = username,question_type=type )
+                ans = result(question = q_id,answer = option_selected,username = username,question_type=type,correct_answer=correct_ans )
                 option_selected=int(option_selected)
                 if(type=='C'):
                     count_comm=count_comm+option_selected
@@ -121,6 +137,30 @@ def after10result(request):
         res = max(count_arts,count_comm,count_science)
         print(username)
         print(User.email) 
+        # foo = response.content.decode('utf-8')
+        # import io
+        # reader = csv.reader(io.StringIO(foo))
+        # dataset = pd.read_csv(io.StringIO(foo))
+        # X = dataset.iloc[:, :1].values #get a copy of dataset exclude last column
+        # y = dataset.iloc[:, 1].values #get array of dataset in column 1st
+        # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=1/3, random_state=0)
+        # regressor = LinearRegression()
+        # regressor.fit(X_train, y_train)
+        # viz_train = plt
+        # plt.xticks([1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21])  
+        # plt.yticks([0,1,2])  
+        # # categories = np.array([0, 2, 1, 1, 1, 2, 0, 0])
+        # # colormap = np.array(['r', 'g', 'b'])
+        # # ax[0].scatter(op_table.index,op_table['num_orders'],color='pink') 
+        # viz_train.scatter(X_train, y_train, color='red')
+        # # viz_train.bar(center_table.index,center_table['num_orders'],alpha=0.7,color='orange',width=0.5) 
+        # viz_train.plot(X_train, regressor.predict(X_train), color='blue')
+        # viz_train.title('Marks VS Question No')
+        # viz_train.xlabel('Question No')
+        # viz_train.ylabel('Marks')
+        # viz_train.show()
+
+        # return response  
            
     return render(request, "after10result.html", {'flag': flag,'science':count_science,'comm':count_comm,'arts':count_arts, 'res' : res, 'science_subcount': science_subcount,'art_subcount': art_subcount, 'comm_subcount': comm_subcount,})
     

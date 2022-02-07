@@ -1,0 +1,23 @@
+Insert into `users_after10`(`id`, `question`,`question_type`,`correct_answer`,`op1`,`op2`,`op3`,`op4`)values
+(NULL, 'At which temperature do the reading of the centigrade and the fahrenheit scales coincide?','S','-40',`0',`-40`,`100`,`-80`),
+(NULL,'The main motive producer is to maximize the profit in _____________ economy`,`A`,`Capitalist’,`Socialist`,`Capitalist`,`Mixed`,`Finalicial`),
+(NULL,'If the selling price of 16 items is the same as the cost price of 20 items, then there is a?`,`C`,`gain of 25%`,`loss of 20%`,`loss of 25%`,`gain of 25%`,`gain of 20%`),
+(NULL, 'There are ___ pairs of intercostal muscles which occupy the space between the ribs`,`D`,`11`,`11`,`12`,`6`,`16`),
+(NULL, 'Which of the following will turn red litmus blue?`,`S`,`Baking Soda`,`Amla juice`,`Lemon Juice`,`Soft Drink`,`Baking Soda`),
+(NULL,'The essence of democracy is  _______`,`A`,`Decentralization of power`,`Decentralization of power`,`Policy of reservation of seats`,`Socialism`,`judicial decision`),
+(NULL,A fuel dealer mixes two brands of fuel which cost in the ratio 2 : 3. A solution containing 30% Brand A and remaining Brand B yields profit of 10% when sold at RS 297. What is the cost of brand B?`,`C`,`300 `,`208`,`300`,`262`,`354`),
+(NULL, `The values of mA and µA are:`,`D`,`10-3 and 10-6 A respectively  `,`10-6 and 10-9 A respectively`,` 10-3 and 10-6 A respectively`,`10-3 and 10-9 A respectively`,`10-6 and 10-3 A respectively`),
+(NULL, `What is the name of the longest bone of the thigh?`,`S`,`Femur`,`Vistula`,`Femur`,`Fibula`,`Humorous`),
+(NULL,`The Folk dance "˜Fugdi" is related to which state?`,`A`,`Goa`,`Manipur`,`Mizoram`,`Goa`,`Kerala`),
+(NULL,` Bonus Shares are issued to–`,`C`,`Equity Shareholders`,`Equity Shareholders`,`Preference Shareholders`,`Debenture Holders`,`Secured Creditors`),
+(NULL, `Which of the following properties is generally not shown by metals?`,`D`,`Dullness `,`Electrical conduction`,`Sonorous in nature`,`Dullness`,`Ductility`),
+(NULL, `What is the colour of iron oxide`,`S`,`Brown`,`Brown`,`Yellow`,`Grey`,`White`),
+(NULL,`Idol of dancing girl (Bronze) is found in which of the following civilizations?`,`A`,` Indus Valley Civilization`,`Mesopotamian Civilization`,` Indus Valley Civilization`,`Persian Civilization`,`Egyptian Civilization`),
+(NULL,` Standard costing is a technique of–`,`C`,`Control`,`Planning`,`Organising`,`Coordination`,`Control`),
+(NULL,’The pairs of equations x=0 and x=5 has:`,`D`,`No solution`,`No solution,`Unique solution`,`Two solution`,`Infinitely many solution`),
+ 
+(NULL, ` If four percent of the number is 6.8,what is 100 percent of  the number?`,`S`,`170`,`150`,`160`,`170`,`175`),
+(NULL,`The words Satyameva Jayate in the State Emblem adopted by the Government of India have been taken from which Upanishad?`,`A`,` Mundaka Upanishad `,`Aitareya Upanishad`,`Mundaka Upanishad`,`Adhyatma Upanishad`,`Prasna Upanishad`),
+ 
+(NULL,`The following particulars relate to the manufacturing factory for the month of March 2013. Variable cost per unit Rs. 11; Fixed factory overhead Rs. 5,40,000; Fixed selling overhead Rs. 2,52,000; Variable selling cost Rs. 3; Sales Price per unit Rs. 20. Find out the Break-Even Point in rupees–`,`C`,`Rs. 25,20,000`,`Rs. 26,40,000`,`Rs. 30,80,000`,`Rs. 25,20,000`,`Rs. 27,40,000`),
+(NULL,’The major source of fresh water in India is`,`D`,`ground water`,`rainfall`,`ground water`,`atmospheric water`,`ocean water`),

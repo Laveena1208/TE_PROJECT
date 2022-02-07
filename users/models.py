@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser , BaseUserManager # change
 from .manager import UserManager #chnage
 
 
+
 class  User(models.Model):
     username = None
     email = models.EmailField(unique = True, blank=True)
@@ -29,8 +30,14 @@ class  User(models.Model):
         return self.email
     
 class After10(models.Model):
-    question=models.CharField(max_length=150,unique=True)
+    question=models.CharField(max_length=900,unique=True)
     question_type = models.CharField(max_length = 120,default=" ")
+    op1 = models.CharField(max_length=900,null=True)
+    op2 = models.CharField(max_length=900,null=True)
+    op3 = models.CharField(max_length=900,null=True)
+    op4 = models.CharField(max_length=900,null=True)
+    correct_answer = models.CharField(max_length = 120,default=" ")
+    
 
 class After12Arts(models.Model):
     question=models.CharField(max_length=150,unique=True)
@@ -91,6 +98,8 @@ class result(models.Model):
     question=models.CharField(max_length=1000,  default="")
     answer = models.CharField(max_length=9,choices=ans_CATEGORIES)
     question_type = models.CharField(max_length=50,default = "")
+    correct_answer = models.CharField(max_length = 120,default=" ")
+    
 
     def __str__(self):
         return self.username
